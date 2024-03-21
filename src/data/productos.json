@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "title": "asus",
+        "description": "pc",
+        "price": 15000,
+        "thumbnail": "https://asuspc.com",
+        "code": "xax1456",
+        "stock": 5
+    },
+    {
+        "id": 2,
+        "title": "macBook",
+        "description": "pc",
+        "price": 15000,
+        "thumbnail": "https://macBook.com",
+        "code": "xax1789",
+        "stock": 5
+    },
+    {
+        "id": 3,
+        "title": "macBook",
+        "description": "pc",
+        "price": 15000,
+        "thumbnail": "https://macBook.com",
+        "code": "xax1789",
+        "stock": 5
+    },
+    {
+        "id": 4,
+        "title": "macBook",
+        "description": "pc",
+        "price": 15000,
+        "thumbnail": "https://macBook.com",
+        "code": "xax1789",
+        "stock": 5
+    }
+]
