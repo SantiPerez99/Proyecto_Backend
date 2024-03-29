@@ -1,6 +1,6 @@
 
 //const fs = require('fs');
-import fs from 'fs'
+import fs, { stat } from 'fs'
 
 export default class ProductManager {
 
@@ -11,7 +11,7 @@ export default class ProductManager {
 
     constructor(){
 
-        this.#path = "./data/productos.json";
+        this.#path = "./src/data/productos.json";
 
         this.#products = this.buscarProductos();
     }
@@ -43,34 +43,44 @@ export default class ProductManager {
         }
     }
     
-    addProduct( title, description, price, thumbnail, code, stock ){
+    addProduct( title, description, price, thumbnails = [], code, stock, category, status=true ){
+
+        let result = 'Ocurrio un error'
         
-       if(!title || !description || !price || !thumbnail || !code || !stock)
-            return "todos los parametros son requeridos [title, description, price, thumbnail, code, stock]"
+       if(!title || !description || !price || !code || !stock || !category)
+            result = "todos los parametros son requeridos [title, description, price, code, stock, category]"
+        else {
+            // validar que no se repita el codigo 
 
+            const repetido = this.#products.some(producto => producto.code == code)
+            
+            if(repetido)
+                result = `el codigo ${code} ya se encuentra registrado en otro producto`;
+            else{
+                    // id autoincrementar
+                ProductManager.idproducto++;
+                const id = this.IdproductoAgregado();
+                const nuevoProducto = {
+                    id,
+                    title,
+                    description,
+                    price,
+                    thumbnails,
+                    code,
+                    stock,
+                    category,
+                    status
+                };
+                this.#products.push(nuevoProducto);
+                this.guardarArchivo();
+                result = {
+                    msg : 'Producto agregado exitosamente..!!',
+                    producto : nuevoProducto
+                };
+            }
+        }
 
-        // validar que no se repita el codigo 
-
-       const repetido = this.#products.some(producto => producto.code == code)
-        if(repetido)
-            return `el codigo ${code} ya se encuentra registrado en otro producto`;
-
-
-        // id autoincrementar
-        ProductManager.idproducto++;
-        const id = this.IdproductoAgregado();
-        const nuevoProducto = {
-            id,
-            title,
-            description,
-            price,
-            thumbnail,
-            code,
-            stock
-        };
-        this.#products.push(nuevoProducto);
-        this.guardarArchivo();
-        return "producto agregado con exito!"
+        return result 
     }
 
     getProducts (limit = 0){
@@ -84,25 +94,42 @@ export default class ProductManager {
     getProductbyId (id){
         // debe buscar el prod segun id en el array
         // de no coincidir debe devolver "not found"
+        let status = false;
+        let resp = `el producto con id ${id} no existe..!!`;
+
         const producto = this.#products.find(producto => producto.id == id); // esta variable busca en el array y se fija si hay coincidencia 
-        if(producto)
-            return producto 
-        else 
-             return `Not Found del producto ${id}`  // si no se encuentra la variable retorna not found           
+        if(producto){
+
+            status=true;
+            resp=producto
+        }
+            
+        return {status , resp}         
     }
 
     updateProduct(id, object) {
-        let mensajeError = `EL producto con id ${id} no existe`
-        let mensajeUpdate = `El producto con id ${id} fue actualizado con existo...!!! `
+
+        let result = `EL producto con id ${id} no existe`
+
         const index = this.#products.findIndex(p=> p.id === id);
 
         if(index >= 0){
             const {id, ...rest} = object
-            this.#products[index] = {...this.#products[index], ...rest} //sobre un producto (this.#products[index]) aplica las nuevas modificaciones  {...this.#products[index], ...rest}
+            const propsAllowed = ['title', 'description','price','thumbnails','code','stock','category','status'];
+            const propsUpdate = Object.keys(rest)
+                .filter(prop => propsAllowed.includes(prop))
+                .reduce((obj,key)=>{
+                    obj[key]= rest[key]; 
+                    return obj;  // valido que no se actualice una propiedad que no corresponde 
+                }, {});  
+            this.#products[index] = {...this.#products[index], ...propsUpdate } //sobre un producto (this.#products[index]) aplica las nuevas modificaciones  {...this.#products[index], ...rest}
             this.guardarArchivo()
-            return mensajeUpdate
+            result = {
+                msg : 'Producto actualizado con exito..!!',
+                result: this.#products[index]
+            }
         }
-        return mensajeError
+        return result
     }
     
     deleteProduct(id){

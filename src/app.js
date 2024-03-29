@@ -1,26 +1,24 @@
 import  express  from "express";
-import ProductManager from "./ProductManager.js";
-
+import productsRouter from './routers/productsRouter.js'
+import cartsRouter from './routers/cartsRouter.js'
 
 
 
 const app = express();
 const PORT = 8080;
 
-app.get('/products', (req, res) => {
-    const { limit } = req.query;
-    const p = new ProductManager();
-    return res.json({ productos: p.getProducts(Number(limit)) }); // Convertir limit a número
-});
+app.use(express.json())   // sirve para enviar peticiones a traves de formularios html 
+app.use(express.urlencoded({ extended: true})) // traducir la data en texto leible 
 
-app.get('/products/:pid', (req, res)=>{
-    const {pid} = req.params;
-    const p = new ProductManager();
-
-    return res.json({producto:p.getProductbyId(Number(pid))});
+app.get('/',(req,res) =>{
+    return res.send ('preEntrega 1')
 })
+
+app.use('/api/products',productsRouter);
+app.use('/api/carts',cartsRouter);
 
 
 app.listen(PORT,()=>{
     console.log(`corriendo aplicacion en el puerto ${PORT}`);
 });
+
