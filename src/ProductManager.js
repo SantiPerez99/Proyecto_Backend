@@ -43,7 +43,7 @@ export default class ProductManager {
         }
     }
     
-    addProduct( title, description, price, thumbnails = [], code, stock, category, status=true ){
+    addProduct( {title, description, price, thumbnails = [], code, stock, category, status=true }){
 
         let result = 'Ocurrio un error'
         

@@ -20,5 +20,104 @@
         "stock": "4",
         "category": "lala",
         "status": false
+    },
+    {
+        "id": 3,
+        "title": "titulo 3",
+        "description": "description3",
+        "price": 1000,
+        "thumbnails": [],
+        "code": "code4",
+        "stock": "4",
+        "category": "lala",
+        "status": true
+    },
+    {
+        "id": 4,
+        "title": "titulo 3",
+        "description": "description3",
+        "price": 1000,
+        "thumbnails": [],
+        "code": "code5",
+        "stock": "4",
+        "category": "lala",
+        "status": true
+    },
+    {
+        "id": 5,
+        "title": "titulo 4",
+        "description": "descripcion",
+        "price": "2555",
+        "thumbnails": [],
+        "code": "code45678999",
+        "stock": "3",
+        "category": "Electrónica",
+        "status": true
+    },
+    {
+        "id": 6,
+        "title": "titulo 5",
+        "description": "descripcion4",
+        "price": "1484",
+        "thumbnails": [],
+        "code": "code456789",
+        "stock": "3",
+        "category": "Ropa",
+        "status": true
+    },
+    {
+        "id": 7,
+        "title": "titulo 6",
+        "description": "descripcion",
+        "price": "2222",
+        "thumbnails": [],
+        "code": "code4567899",
+        "stock": "3",
+        "category": "Electrónica",
+        "status": true
+    },
+    {
+        "id": 8,
+        "title": "titulo 7",
+        "description": "descripcion",
+        "price": "1478",
+        "thumbnails": [],
+        "code": "code",
+        "stock": "2",
+        "category": "Electrónica",
+        "status": true
+    },
+    {
+        "id": 9,
+        "title": "titulo 8",
+        "description": "descripcion",
+        "price": "1515115",
+        "thumbnails": [],
+        "code": "code5558",
+        "stock": "3",
+        "category": "Electrónica",
+        "status": true
+    },
+    {
+        "id": 10,
+        "title": "titulo 9",
+        "description": "descripcion",
+        "price": "1788",
+        "thumbnails": [],
+        "code": "code45",
+        "stock": "7",
+        "category": "Electrónica",
+        "status": true
+    },
+    {
+        "id": 11,
+        "title": "titulo 10",
+        "description": "descripcion",
+        "price": "14563",
+        "thumbnails": [],
+        "code": "code4567",
+        "stock": "3",
+        "category": "Electrónica",
+        "status": true
     }
 ]

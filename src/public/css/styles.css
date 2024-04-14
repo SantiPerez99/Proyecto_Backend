@@ -1,0 +1,86 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+/* ESTILOS PARA TABLA DE PRODUCTOS */
+/* Estilo básico para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    font-family: Arial, sans-serif;
+  }
+  /* Estilo para las celdas */
+  td, th {
+    padding: 10px;
+    border: 1px solid #ccc; /* Agregar borde a cada celda */
+  }
+  
+  /* Estilo para las celdas de encabezado */
+  thead th {
+    background-color: #f2f2f2;
+    border-bottom: 2px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  /* Estilo para las filas pares */
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Estilo para las celdas */
+  td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  /* Estilo para la última celda de cada fila */
+  td:last-child {
+    border-right: 1px solid #ccc;
+  }
+
+  /* ESTILOS PARA FORMULARIO DE AGREGAR PRODUCTOS */
+  
+  form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
