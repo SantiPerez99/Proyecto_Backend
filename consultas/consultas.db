@@ -1,0 +1,203 @@
+db.productos.insertMany([
+    
+    {
+        "id": 1,
+        "title": "titulo 1",
+        "description": "description1",
+        "price": 1000,
+        "thumbnails": [],
+        "code": "code44",
+        "stock": "4",
+        "category": "lala",
+        "status": true
+    },
+    {
+        "id": 2,
+        "title": "titulo 2",
+        "description": "description2",
+        "price": 1000,
+        "thumbnails": [],
+        "code": "code445",
+        "stock": "4",
+        "category": "lala",
+        "status": false
+    },
+    {
+        "id": 3,
+        "title": "titulo 3",
+        "description": "description3",
+        "price": 1000,
+        "thumbnails": [],
+        "code": "code4",
+        "stock": "4",
+        "category": "lala",
+        "status": true
+    },
+    {
+        "id": 4,
+        "title": "titulo 3",
+        "description": "description3",
+        "price": 1000,
+        "thumbnails": [],
+        "code": "code5",
+        "stock": "4",
+        "category": "lala",
+        "status": true
+    },
+    {
+        "id": 5,
+        "title": "titulo 4",
+        "description": "descripcion",
+        "price": "2555",
+        "thumbnails": [],
+        "code": "code45678999",
+        "stock": "3",
+        "category": "Electrónica",
+        "status": true
+    },
+    {
+        "id": 6,
+        "title": "titulo 5",
+        "description": "descripcion4",
+        "price": "1484",
+        "thumbnails": [],
+        "code": "code456789",
+        "stock": "3",
+        "category": "Ropa",
+        "status": true
+    },
+    {
+        "id": 7,
+        "title": "titulo 6",
+        "description": "descripcion",
+        "price": "2222",
+        "thumbnails": [],
+        "code": "code4567899",
+        "stock": "3",
+        "category": "Electrónica",
+        "status": true
+    },
+    {
+        "id": 8,
+        "title": "titulo 7",
+        "description": "descripcion",
+        "price": "1478",
+        "thumbnails": [],
+        "code": "code",
+        "stock": "2",
+        "category": "Electrónica",
+        "status": true
+    },
+    {
+        "id": 9,
+        "title": "titulo 8",
+        "description": "descripcion",
+        "price": "1515115",
+        "thumbnails": [],
+        "code": "code5558",
+        "stock": "3",
+        "category": "Electrónica",
+        "status": true
+    },
+    {
+        "id": 10,
+        "title": "titulo 9",
+        "description": "descripcion",
+        "price": "1788",
+        "thumbnails": [],
+        "code": "code45",
+        "stock": "7",
+        "category": "Electrónica",
+        "status": true
+    },
+    {
+        "id": 11,
+        "title": "titulo 10",
+        "description": "descripcion",
+        "price": "14563",
+        "thumbnails": [],
+        "code": "code4567",
+        "stock": "3",
+        "category": "Electrónica",
+        "status": true
+    }
+
+])
+db.mascotas.insertMany([
+
+    {
+        "nombre":"bush",
+        "especie":"breton aleman",
+        "edad": "14"
+    },
+    {
+        "nombre":"ginger",
+        "especie":"breton aleman",
+        "edad": "9"
+    },
+    {
+        "nombre":"kiwi",
+        "especie":"raza perro",
+        "edad": "2"
+    }
+])
+
+db.estudiantes.insertMany([
+    {
+        "nombre":"lucas",
+        "apellido":"gomez",
+        "curso":"6A",
+        "edad": 15,
+        "correo":"samsmasms@gmail.com",
+        "sexo":"H",
+    },
+    {
+        "nombre":"santiago",
+        "apellido":"perez",
+        "curso":"6A",
+        "edad": 15,
+        "correo":"safadfdfr@gmial.com",
+        "sexo":"H",
+    },
+    {
+        "nombre":"lucas",
+        "apellido":"gomez",
+        "curso":"6A",
+        "edad": 15,
+        "correo":"samsmasms@gmail.com",
+        "sexo":"F",
+    },
+    {
+        "nombre":"santiago",
+        "apellido":"perez",
+        "curso":"6A",
+        "edad": 15,
+        "correo":"safadfdfr@gmial.com",
+        "sexo":"F",
+    },
+    {
+        "nombre":"claudia",
+        "apellido":"perez",
+        "curso":"6A",
+        "edad": 15,
+        "correo":"safadfdfr@gmial.com",
+        "sexo":"F",
+    },
+    
+])
+
+1-- db.estudiantes.insertMany([{"nombre":"pablo","edad":25},{"nombre":"juan","edad":22},{"nombre":"lucia","edad":25},{"nombre":"juan","edad":29},{"nombre":"fede","edad":35}])
+2-- db.estudiantes.find({},{nombre:1,edad:1,_id:0}).sort({edad:-1})
+5-- db.estudiantes.find({nombre:{$in:["juan"]}})
+6-- db.estudiantes.find({nombre:{$in:["juan"]},edad:29})
+7-- db.estudiantes.find({nombre:{$in:["juan","lucia"]}})
+8-- db.estudiantes.find({edad:{$gt:25}})
+9-- db.estudiantes.find({edad:{$lte:25}})
+10-- db.estudiantes.find({edad:{$ne:25}})
+11-- db.estudiantes.find({edad:{$gte:26,$lte:35}})
+12-- db.estudiantes.updateOne({nombre:"fede"},{$max:{edad:35}})
+    db.estudiantes.findOne({nombre:"fede"})
+13-- db.estudiantes.updateMany({edad:25},{$max:{edad:26}})
+    db.estudiantes.find({edad:26})
+14-- db.estudiantes.deleteMany({nombre:"juan"})
+15-- db.estudiantes-deleteMany({})

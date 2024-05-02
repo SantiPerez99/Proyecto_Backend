@@ -1,17 +1,18 @@
 import { Router } from "express";
-import ProductManager from "../ProductManager.js";
-
+import { productModel } from "../models/products.js";
 
 const router = Router();
 
-router.get('/',(req,res)=>{
-    const p = new ProductManager();
-    const productos = p.getProducts();
-    return res.render('home',{productos});
+router.get('/', async (req,res)=>{
+    const productos = await productModel.find().lean();
+    return res.render('home',{productos,styles:'styless.css'});
 });
 
 router.get('/realtimeproducts',(req,res)=>{
     return res.render('realTimeProducts',{});
+});
+router.get('/chat',(req,res)=>{
+    return res.render('chat',{});
 });
 
 
